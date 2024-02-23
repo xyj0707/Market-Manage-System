@@ -66,5 +66,13 @@ namespace WebApp.Controllers
             ProductRepository.DeleteProduct(id);
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult ProductsByCategoryPartial(int categoryId)
+        {
+            var products = ProductRepository.GetProductsByCategoryId(categoryId);
+            return PartialView("_Products", products);
+        }
+
+        
     }
 }
