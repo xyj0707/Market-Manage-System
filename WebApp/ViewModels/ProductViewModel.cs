@@ -1,4 +1,6 @@
-﻿using WebApp.Models;
+﻿
+
+using CoreBusiness;
 
 namespace WebApp.ViewModels
 {

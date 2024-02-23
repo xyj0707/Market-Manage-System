@@ -1,11 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApp.Models;
+using UseCases.interfaces;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers
 {
     public class TransactionsController : Controller
     {
+        private readonly ISearchTransactionsUseCase searchTransactionsUseCase;
+
+        public TransactionsController(ISearchTransactionsUseCase searchTransactionsUseCase)
+        {
+            this.searchTransactionsUseCase = searchTransactionsUseCase;
+        }
         public IActionResult Index()
         {
             TransactionsViewModel transactionsViewModel = new TransactionsViewModel();
@@ -14,8 +20,8 @@ namespace WebApp.Controllers
 
         public IActionResult Search(TransactionsViewModel transactionsViewModel)
         {
-            var transactions = TransactionsRepository.Search(
-                transactionsViewModel.CashierName??string.Empty,
+            var transactions = searchTransactionsUseCase.Execute(
+               transactionsViewModel.CashierName??string.Empty,
                 transactionsViewModel.StartDate,
                 transactionsViewModel.EndDate);
             transactionsViewModel.Transactions = transactions;
