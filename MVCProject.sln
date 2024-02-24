@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{49A4966B-189D-45F0-A5F7-93437ED1D742}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csproj", "{49A4966B-189D-45F0-A5F7-93437ED1D742}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreBusiness", "CoreBusiness\CoreBusiness.csproj", "{A878D717-156B-48C8-B285-6DB89613E1E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreBusiness", "CoreBusiness\CoreBusiness.csproj", "{A878D717-156B-48C8-B285-6DB89613E1E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCases", "UseCases\UseCases.csproj", "{AEA75B16-AE45-41DF-BAF9-B7D057728BB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseCases", "UseCases\UseCases.csproj", "{AEA75B16-AE45-41DF-BAF9-B7D057728BB6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{50166D09-DE28-423B-B908-E439B251D74A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins.DataStore.InMemory", "Plugins\Plugins.DataStore.InMemory\Plugins.DataStore.InMemory.csproj", "{2562E396-A685-4539-9642-4646A66F1799}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugins.DataStore.InMemory", "Plugins\Plugins.DataStore.InMemory\Plugins.DataStore.InMemory.csproj", "{2562E396-A685-4539-9642-4646A66F1799}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins.DataStore.SQL", "Plugins\Plugins.DataStore.SQL\Plugins.DataStore.SQL.csproj", "{3208AE03-A03C-4DE1-9309-2307F316905A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,12 +37,17 @@ Global
 		{2562E396-A685-4539-9642-4646A66F1799}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2562E396-A685-4539-9642-4646A66F1799}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2562E396-A685-4539-9642-4646A66F1799}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3208AE03-A03C-4DE1-9309-2307F316905A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3208AE03-A03C-4DE1-9309-2307F316905A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3208AE03-A03C-4DE1-9309-2307F316905A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3208AE03-A03C-4DE1-9309-2307F316905A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2562E396-A685-4539-9642-4646A66F1799} = {50166D09-DE28-423B-B908-E439B251D74A}
+		{3208AE03-A03C-4DE1-9309-2307F316905A} = {50166D09-DE28-423B-B908-E439B251D74A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {47FAC72D-8398-4AA4-9E83-E11B2B4BABEC}
