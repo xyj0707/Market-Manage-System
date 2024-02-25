@@ -6,14 +6,29 @@ using UseCases.DataStorePluginInterfaces;
 using UseCases.interfaces;
 using UseCases.ProductsUseCases;
 using UseCases.TransactionsUseCases;
+using Microsoft.AspNetCore.Identity;
+using WebApp.Data;
 
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<AccountContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MarketManagement"));
+});
 builder.Services.AddDbContext<MarketContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("MarketManagement"));
 });
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AccountContext>();
+builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Inventory", p => p.RequireClaim("Position", "Inventory"));
+    options.AddPolicy("Cashiers", p => p.RequireClaim("Position", "Cashier"));
+});
 
 if (builder.Environment.IsEnvironment("QA"))
 {
@@ -49,6 +64,11 @@ builder.Services.AddTransient<ISearchTransactionsUseCase, SearchTransactionsUseC
 var app = builder.Build();
 app.UseStaticFiles();
 app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

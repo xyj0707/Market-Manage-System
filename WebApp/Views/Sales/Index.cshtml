@@ -8,6 +8,7 @@
         </div>
         <div class="col-3">
             @* Display Cashier's name here*@
+            @User?.Identity?.Name
         </div>
     </div>
 }
@@ -96,7 +97,7 @@
 
         });
         function loadProducts(categoryId){
-            $("#productsPartial").load("/products/ProductsByCategoryPartial", { categoryId: categoryId });
+            $("#productsPartial").load("/sales/ProductsByCategoryPartial", { categoryId: categoryId });
             $("#productDetailPartial").html("");
             $("#formSale").hide();
         }
